@@ -41,7 +41,9 @@ const fetchData = async (address, count, lat, lon) => {
 app.get('/fetch-data', async (req, res) => {
   const { address, count, lat, lon } = req.query;
   let parseNumber = parseInt(count)
-  const data = await fetchData(address, parseNumber, lat, lon);
+  let lati = parseFloat(lat)
+  let longi = parseFloat(lon)
+  const data = await fetchData(address, parseNumber, lati, longi);
   res.json(data);
 });
 
